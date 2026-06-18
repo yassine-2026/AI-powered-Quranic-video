@@ -52,7 +52,7 @@ export default function App() {
     localStorage.setItem('selectedReciter', selectedReciter);
 
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || '';
+      const apiUrl = (import.meta as any).env.VITE_API_URL || '';
       const res = await axios.post(`${apiUrl}/api/generate`, {
         surah: selectedSurah,
         ayahs: selectedAyahs,
