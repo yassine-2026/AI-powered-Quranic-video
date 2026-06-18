@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+@import "tailwindcss";
+
+@theme {
+  --color-nature-50: #F9F8F4;
+  --color-nature-100: #F4F6F2;
+  --color-nature-200: #F0EEE6;
+  --color-nature-300: #E5E2D9;
+  --color-nature-400: #A4907C;
+  --color-nature-500: #8C897E;
+  --color-nature-700: #4B5E40;
+  --color-nature-800: #3A4A32;
+  --color-nature-900: #2D332A;
+  --font-sans: "Georgia", "Amiri", serif;
+  --font-serif: "Georgia", "Amiri", serif;
+}

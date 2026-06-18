@@ -1,0 +1,8 @@
+[
+  {"id": 1, "name": "Al-Fatihah", "transliteration": "Al-Fatihah", "verses": 7},
+  {"id": 2, "name": "Al-Baqarah", "transliteration": "Al-Baqarah", "verses": 286},
+  {"id": 3, "name": "Aal-E-Imran", "transliteration": "Aal-E-Imran", "verses": 200},
+  {"id": 36, "name": "Ya-Sin", "transliteration": "Ya-Sin", "verses": 83},
+  {"id": 55, "name": "Ar-Rahman", "transliteration": "Ar-Rahman", "verses": 78},
+  {"id": 114, "name": "An-Nas", "transliteration": "An-Nas", "verses": 6}
+]
