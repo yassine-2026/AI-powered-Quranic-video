@@ -6,6 +6,9 @@ import { ThemeToggle } from './components/ThemeToggle';
 import { LanguageToggle } from './components/LanguageToggle';
 import axios from 'axios';
 
+import surahsData from './data/surahs.json';
+import recitersData from './data/reciters.json';
+
 interface Surah { id: number; name: string; transliteration: string; verses: number; }
 interface Reciter { id: string; name: string; language: string; }
 
@@ -30,9 +33,9 @@ export default function App() {
   }, [i18n.language]);
 
   useEffect(() => {
-    // Load local json data
-    axios.get('/api/surahs').then(res => setSurahs(res.data)).catch(console.error);
-    axios.get('/api/reciters').then(res => setReciters(res.data)).catch(console.error);
+    // Load local json data directly
+    setSurahs(surahsData);
+    setReciters(recitersData);
     
     // Load persisted settings
     const savedSurah = localStorage.getItem('selectedSurah');
@@ -49,7 +52,8 @@ export default function App() {
     localStorage.setItem('selectedReciter', selectedReciter);
 
     try {
-      const res = await axios.post('/api/generate', {
+      const apiUrl = import.meta.env.VITE_API_URL || '';
+      const res = await axios.post(`${apiUrl}/api/generate`, {
         surah: selectedSurah,
         ayahs: selectedAyahs,
         reciter: selectedReciter,
@@ -61,7 +65,7 @@ export default function App() {
       // Poll for status
       const poll = setInterval(async () => {
         try {
-          const statusRes = await axios.get(`/api/status/${jobId}`);
+          const statusRes = await axios.get(`${apiUrl}/api/status/${jobId}`);
           if (statusRes.data.status === 'completed') {
             clearInterval(poll);
             setVideoUrl(statusRes.data.videoUrl);
